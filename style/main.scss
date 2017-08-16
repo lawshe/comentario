@@ -1,0 +1,260 @@
+$black: #212121;
+$blackLight: #424242;
+$blueVeryLight: #b3e5fc;
+$blueLight: #0165b4;
+$blueDark: #013b68;
+$gray: #e0e0e0;
+$grayLight: #f5f5f5;
+$greenLight: #aed581;
+$greenDarken4: #1B5E20;
+$greenVeryLight: #bddebf;
+$greenVeryDark: #0F5113;
+$greenDark: #689f38;
+$white: #fafafa;
+$btnHover : $greenDark;
+$linkColor: $blueLight;
+$linkHover: $blueDark;
+$marginSM: 15px;
+$marginMD: 30px;
+$padSM: 10px;
+$padMD: 30px;
+$padLG: 60px;
+$screenDesktop: 992px;
+$screenMobile: 600px;
+
+html {
+  background: $greenDarken4;
+  color: $black;
+  font-family: "Helvetica", Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  width: 100%;
+}
+
+#main{
+  min-height: 100vh;
+}
+body > div > div {
+  min-height: 100vh;
+}
+body > div > div > div{
+  min-height: 100vh;
+}
+
+.layout{
+  min-height: 110vh;
+}
+
+h1, h2, h3, h4, h6 {
+  font-weight: bold;
+}
+
+h1{
+  color: $greenVeryLight;
+  margin: $marginMD 0;
+}
+
+h2{
+  margin: $marginSM 0 0 0;
+}
+
+h3, h4{
+  font-family: Futura, "Trebuchet MS", Helvetica, Arial, sans-serif;
+}
+
+h5{
+  color: $blackLight;
+  font-weight: normal;
+}
+
+a:not(.btn){
+  color: $linkColor;
+  &:hover{
+    color: $linkHover;
+    transition: .3s ease-out;
+    span{
+      color: $linkHover;
+      transition: .3s ease-out;
+    }
+  }
+}
+
+.active {
+  color: $greenVeryLight!important;
+}
+
+.btn{
+  &:hover{
+    background-color: $btnHover!important;
+  }
+}
+
+.btn_large{
+  font-size: 1.64rem;
+  height: 60px;
+  line-height: 60px;
+}
+
+.btn.light_green{
+  color: $black;
+}
+
+.brand_logo {
+  display: inline-block;
+  height: 100%;
+  svg{
+    margin-top: 7px;
+    height: 54px;
+    @media only screen and (max-width: $screenMobile) {
+      margin-top: 5px;
+      height: 47px;
+    }
+  }
+}
+
+.card{
+  background: $grayLight;
+  .collection_item{
+    background: $grayLight;
+  }
+  a{
+    &:hover{
+      color: $blueDark!important;
+    }
+  }
+}
+
+.card_in_card{
+  display: inline-block;
+  margin: $marginMD auto 1.46rem auto;
+  padding: $padMD;
+  width: auto;
+}
+
+.collapsible{
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  box-shadow: 0 0 0;
+  text-align: left;
+  .active{
+    i{
+      -ms-transform: rotate(180deg);
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+  }
+  .collapsible_body{
+    padding: 0!important;
+  }
+  .collapsible_header{
+    background-color: inherit;
+  }
+}
+
+.dark_bg{
+  h1{
+    color: $white;
+  }
+
+  a:not(.btn){
+    &:hover{
+      color: $blueVeryLight!important;
+    }
+  }
+}
+
+label{
+  color: $blackLight;
+}
+
+.light_bg {
+  a{
+    &:hover{
+      color: $blueDark!important;
+    }
+  }
+}
+
+.med_bg{
+  h5{
+    color: $gray;
+  }
+
+  a:not(.btn){
+    color: $white!important;
+    &:hover{
+      color: $blueVeryLight!important;
+    }
+  }
+}
+
+nav {
+  padding: 0 $padSM;
+  a {
+    color: $white!important;
+    &:hover{
+      background-color: inherit;
+      color: $blueVeryLight!important;
+    }
+  }
+
+  .side_nav {
+    a {
+      color: $linkColor!important;
+      &:hover{
+        background-color: inherit;
+        color: $linkHover!important;
+        i{
+          color: inherit;
+        }
+      }
+    }
+  }
+}
+
+.no_margin{
+  margin: 0;
+}
+
+.no_pad{
+  padding: 0;
+}
+
+.pad_lg{
+  padding: $padLG!important;
+}
+
+.page_header{
+  background-color: $greenVeryDark;
+}
+
+.parallax{
+  z-index: 0!important;
+}
+
+.parallax_container{
+  height: auto!important;
+  min-height: 34vh;
+  width: 100%;
+}
+
+.shadow{
+  background: rgba(0, 0, 0, 0.5);
+  padding: $padSM;
+  width: 100%!important;
+}
+
+.source{
+  color: $blackLight;
+}
+
+.switch label input[type=checkbox]:checked+.lever{
+  background-color: $greenLight;
+}
+.switch label input[type=checkbox]:checked+.lever:after{
+  background-color: $greenDark;
+}
+
+.yield{
+  min-height: 100vh;
+}
