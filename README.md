@@ -1,15 +1,4 @@
-# React Comienzo
-A starter app using:
-- [Express](http://expressjs.com/)
-- [Jest](https://facebook.github.io/jest/)
-- [Materialize](http://materializecss.com/)
-- [Node](https://nodejs.org/en/)
-- [React](https://facebook.github.io/react/)
-- [Redux](http://redux.js.org/)
-
-The app has 2 routes: `/` and `/accessibility`. The homepage includes a [parallax](https://en.wikipedia.org/wiki/Parallax), which can be disabled by the user in `/accessibility`.
-
-A [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) is included, but in order to use you must include an SSL certificate. Free certificates are available at [Let's Encrypt](https://letsencrypt.org/). Store `key.pem` and `cert.pem` in root.
+# Mention User
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -21,8 +10,8 @@ These instructions will get you a copy of the project up and running on your loc
 ### Installing
 Clone the repository
 ```
-$ git clone https://github.com/lawshe/react-comienzo.git
-$ cd react-comienzo
+$ git clone https://github.com/lawshe/mention-user.git
+$ cd mention-user
 $ npm install
 ```
 

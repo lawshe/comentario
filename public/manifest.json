@@ -1,7 +1,7 @@
 {
-  "name": "react-comienzo",
+  "name": "mention-user",
   "display": "standalone",
-  "short_name": "React Comienzo",
+  "short_name": "Mention User",
   "background_color": "#1b5e20",
   "icons": [
     {
