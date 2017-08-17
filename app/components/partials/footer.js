@@ -6,8 +6,9 @@ export default () => {
     <footer className={`page-footer blue-grey darken-4 ${glob.dark_bg}`}>
       <div className="container">
         <div className="row">
-          <div className="col l6 s12">
-            <h5 className="grey-text text-lighten-4">Footer</h5>
+          <div className="col s12">
+            <h5 className="grey-text text-lighten-4">Comentario</h5>
+            <p className={`grey-text text-lighten-3 ${glob.no_margin}`}>A commenting system</p>
           </div>
         </div>
       </div>
