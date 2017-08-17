@@ -47,3 +47,4 @@ Favicon and icons are stored in `/public/images/icons`. Google analytics can be 
 - When deleting text via backspace button, if username, then remove entire username
 - Improve user suggestions. Data is sorted by user.username but user.name is also being used to match the input text
 - Improve UI when user suggestions overlap submit button
+- Add tests for saving comments
