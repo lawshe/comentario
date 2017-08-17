@@ -1,4 +1,4 @@
-import usersData from '../data/data';
+import usersData from '../data/sorted-usernames';
 
 const findUser = (inputText) => {
   // This is run after each text input change
@@ -31,7 +31,7 @@ const findUser = (inputText) => {
 const includeUser = (inputText, username) => {
   const textArr = inputText.split(' ');
   textArr.pop();
-  return textArr.join(' ') + ' @' + username;
+  return textArr.join(' ') + ' @' + username + ' ';
 }
 
 export default {
