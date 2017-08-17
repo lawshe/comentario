@@ -39,6 +39,7 @@ class TextInput extends React.Component {
   handleKeyPress(e) {
     if (e.key === 'Enter' && this.props.matchedUsers[0]) {
       this.props.onUserClick(this.props.matchedUsers[0].username);
+      e.preventDefault();
     }
   }
 
@@ -52,6 +53,9 @@ class TextInput extends React.Component {
   }
 
   getTextWidth(text) {
+    if (window.innerWidth < 500){
+      return 24;
+    }
     const font = '1rem Helvetica, Arial, sans-serif';
     const canvas = this.getTextWidth.canvas || (this.getTextWidth.canvas = document.createElement('canvas'));
     const context = canvas.getContext('2d');
