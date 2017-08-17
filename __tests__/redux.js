@@ -45,7 +45,7 @@ describe('input actions', () => {
       type: types.INCLUDE_USER,
       username
     };
-    expect(actions.includeUser('pturner0')).toEqual(expectedAction)
+    expect(actions.includeUser(username)).toEqual(expectedAction)
   });
 });
 
