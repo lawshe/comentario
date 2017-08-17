@@ -29,8 +29,10 @@ class Nav extends React.Component {
       <nav className="grey darken-4">
         <div className="nav-wrapper">
           <div className="container">
-            <Link to="/" className="brand-logo">
-              Logo
+            <Link to="/">
+              <span id="logo-container" className={`brand-logo ${glob.brand_logo}`}>
+                <img src="/public/images/icons/icon-w.png" alt="Comentario" />
+              </span>
             </Link>
           </div>
 
