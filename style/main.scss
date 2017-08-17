@@ -101,13 +101,9 @@ a:not(.btn){
 .brand_logo {
   display: inline-block;
   height: 100%;
-  svg{
+  img{
+    height: 50px;
     margin-top: 7px;
-    height: 54px;
-    @media only screen and (max-width: $screenMobile) {
-      margin-top: 5px;
-      height: 47px;
-    }
   }
 }
 
@@ -128,6 +124,10 @@ a:not(.btn){
   margin: $marginMD auto 1.46rem auto;
   padding: $padMD;
   width: auto;
+}
+
+.chip {
+  cursor: pointer;
 }
 
 .collapsible{
