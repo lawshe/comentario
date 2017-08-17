@@ -16,7 +16,7 @@ describe('accessibility reducers', () => {
   it('should return the initial state', () => {
     expect(reducer.accessibility(undefined, {})).toEqual({
       parallax: true
-    })
+    });
   });
 
   it('should toggle the initial state', () => {
@@ -24,7 +24,7 @@ describe('accessibility reducers', () => {
       type: types.TOGGLE_PARALLAX
     })).toEqual({
       parallax: false
-    })
+    });
   });
 });
 // End accessibility tests
@@ -54,7 +54,7 @@ describe('input reducers', () => {
     expect(reducer.input(undefined, {})).toEqual({
       input_text: '',
       matched_users: []
-    })
+    });
   });
 
   it('should update the text', () => {
@@ -65,7 +65,7 @@ describe('input reducers', () => {
     })).toEqual({
       input_text,
       matched_users: []
-    })
+    });
   });
 
   it('should append @username', () => {
@@ -74,9 +74,9 @@ describe('input reducers', () => {
       type: types.INCLUDE_USER,
       username
     })).toEqual({
-      input_text: ' @' + username,
+      input_text: ' @' + username + ' ',
       matched_users: []
-    })
+    });
   });
 });
 // End input tests
