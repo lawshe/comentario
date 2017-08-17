@@ -63,11 +63,11 @@ class TextInput extends React.Component {
   render() {
     const cursorLoc = this.getTextWidth(this.props.inputText);
     const usersJsx = this.props.matchedUsers && this.props.matchedUsers.length > 0 ? (
-      <ul style={{ left: cursorLoc, position: 'relative' }}>
+      <ul style={{ left: cursorLoc, position: 'absolute' }}>
         {this.props.matchedUsers.map((user, index) => {
           return (
             <li key={index}>
-              <div className="chip"
+              <div className={`chip ${glob.chip}`}
                 onClick={() => this.handleUserClick(user.username)}
               >
                 <img src={user.avatar_url} alt={user.username} />
