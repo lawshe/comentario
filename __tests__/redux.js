@@ -52,6 +52,7 @@ describe('input actions', () => {
 describe('input reducers', () => {
   it('should return the initial state', () => {
     expect(reducer.input(undefined, {})).toEqual({
+      comments: [],
       input_text: '',
       matched_users: []
     });
@@ -63,6 +64,7 @@ describe('input reducers', () => {
       type: types.UPDATE_TEXT,
       input_text: input_text
     })).toEqual({
+      comments: [],
       input_text,
       matched_users: []
     });
@@ -74,7 +76,46 @@ describe('input reducers', () => {
       type: types.INCLUDE_USER,
       username
     })).toEqual({
+      comments: [],
       input_text: ' @' + username + ' ',
+      matched_users: []
+    });
+  });
+
+  it('should not save empty comment', () => {
+    expect(reducer.input(undefined, {
+      type: types.SAVE_COMMENT
+    })).toEqual({
+      comments: [],
+      input_text: '',
+      matched_users: []
+    });
+  });
+
+  it('should save comment', () => {
+    expect(reducer.input({
+      comments: [],
+      input_text: 'Read Asimov',
+      matched_users: []
+    }, {
+      type: types.SAVE_COMMENT
+    })).toEqual({
+      comments: [{ text: 'Read Asimov'}],
+      input_text: '',
+      matched_users: []
+    });
+  });
+
+  it('should trim comment when saving', () => {
+    expect(reducer.input({
+      comments: [],
+      input_text: '  Isaac Asimov was a writer and professor of biochemistry   ',
+      matched_users: []
+    }, {
+      type: types.SAVE_COMMENT
+    })).toEqual({
+      comments: [{ text: 'Isaac Asimov was a writer and professor of biochemistry'}],
+      input_text: '',
       matched_users: []
     });
   });
