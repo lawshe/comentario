@@ -1,7 +1,7 @@
 import usersData from '../data/data';
 
 const findUser = (inputText) => {
-  // This is run after each input change
+  // This is run after each text input change
   // Only search for users based on last word in input, when last word is more than 1 character
   // Return only 3 user suggestions max
 
@@ -24,6 +24,12 @@ const findUser = (inputText) => {
   }
 
   return userResults;
+}
+
+const includeUser = (inputText, username) => {
+  const textArr = inputText.split(' ');
+  textArr.pop();
+  return textArr.join(' ') + ' @' + username;
 }
 
 export default {
