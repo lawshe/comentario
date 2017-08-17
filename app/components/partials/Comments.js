@@ -5,7 +5,7 @@ import fxns from 'fxns';
 class Comments extends React.Component {
   render() {
     const commentsJSX = this.props.comments && this.props.comments.length > 0 ? (
-      <ul className="collection">
+      <ul className={`collection ${glob.collection}`}>
         {this.props.comments.reverse().map((comment, index) => {
           const prettyDate = fxns.prettyDate(comment.date);
           return (
