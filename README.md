@@ -1,4 +1,6 @@
-# Mention User
+# Comentario
+
+A text input that will suggest users to include while typing. Input text is handled via redux and on change the state is updated. If more than 2 characters in the last word of the input then users are searched. When suggestions are found, pressing `enter` key or clicking the user in suggestion list will update the text to include `@username`.  
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -10,8 +12,8 @@ These instructions will get you a copy of the project up and running on your loc
 ### Installing
 Clone the repository
 ```
-$ git clone https://github.com/lawshe/mention-user.git
-$ cd mention-user
+$ git clone https://github.com/lawshe/comentario.git
+$ cd comentario
 $ npm install
 ```
 
@@ -42,3 +44,5 @@ Favicon and icons are stored in `/public/images/icons`. Google analytics can be 
 
 ## To Do
 - Add tests for components
+- When deleting text via backspace button, if username, then remove entire username
+- Fix position of user suggestion list for small screens
