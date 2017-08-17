@@ -246,8 +246,8 @@ nav {
   padding: $padMD!important;
 }
 
-.pad_md_top_btm{
-  padding: $padMD 0!important;
+.pad_md_top{
+  padding: $padMD 0 0 0!important;
 }
 
 .page_header{
@@ -260,8 +260,11 @@ nav {
 
 .parallax_container{
   height: auto!important;
-  min-height: 34vh;
+  min-height: 15vh;
   width: 100%;
+  h1, h5{
+    z-index: 1;
+  }
 }
 
 .shadow{
