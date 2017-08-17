@@ -3,7 +3,7 @@ import fxns from '../../utils/fxns';
 
 const initialState = {
   input_text: '',
-  matched_user: []
+  matched_users: []
 };
 
 export default function inputReducers(state = initialState, action) {
