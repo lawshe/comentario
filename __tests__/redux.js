@@ -31,13 +31,21 @@ describe('accessibility reducers', () => {
 
 // Begin input tests
 describe('input actions', () => {
-  it('should update text', () => {
+  it('should send text', () => {
     const input_text = 'A robot may not injure a human being';
     const expectedAction = {
       type: types.UPDATE_TEXT,
       input_text
     };
     expect(actions.updateText(input_text)).toEqual(expectedAction)
+  });
+  it('should send username', () => {
+    const username = 'pturner0';
+    const expectedAction = {
+      type: types.INCLUDE_USER,
+      username
+    };
+    expect(actions.includeUser('pturner0')).toEqual(expectedAction)
   });
 });
 
@@ -56,6 +64,17 @@ describe('input reducers', () => {
       input_text: input_text
     })).toEqual({
       input_text,
+      matched_users: []
+    })
+  });
+
+  it('should append @username', () => {
+    const username = 'pturner0';
+    expect(reducer.input(undefined, {
+      type: types.INCLUDE_USER,
+      username
+    })).toEqual({
+      input_text: ' @' + username,
       matched_users: []
     })
   });
