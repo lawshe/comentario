@@ -20,7 +20,7 @@ class Comments extends React.Component {
     : <p className="grey-text text-lighten-1">No comments yet. Please add one!</p>;
 
     return (
-      <div clasName="section">
+      <div className="section">
         <div className="container">
           <h3 className="grey-text text-lighten-5">Comments</h3>
           <div className="row"><div className="col s12">
