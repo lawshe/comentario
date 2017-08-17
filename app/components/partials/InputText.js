@@ -34,18 +34,43 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class TextInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      desired: 0
+    };
+  }
 
   componentDidMount() {
     this.props.onTextChange('');
-    $('.tooltipped').tooltip({delay: 50});
   }
 
-  handleKeyPress(e) {
-    if (e.key === 'Enter' && this.props.matchedUsers[0]) {
-      this.props.onUserClick(this.props.matchedUsers[0].username);
+  handleKeyDown(e) {
+    if (e.key === 'Enter' && this.props.matchedUsers && this.props.matchedUsers.length > 0) {
       e.preventDefault();
+      this.props.onUserClick(this.props.matchedUsers[this.state.desired].username);
+      this.setState({ desired: 0 });
     } else if (e.key === 'Enter') {
       this.props.onSubmitForm();
+      this.setState({ desired: 0 });
+    } else if (e.keyCode === 40 && this.props.matchedUsers && this.props.matchedUsers.length > 0) {
+      e.preventDefault();
+      if (this.state.desired < this.props.matchedUsers.length - 1) {
+        this.setState({
+          desired: this.state.desired + 1
+        });
+      } else {
+        this.setState({ desired: 0});
+      }
+    } else if (e.keyCode === 38 && this.props.matchedUsers && this.props.matchedUsers.length > 0) {
+      e.preventDefault();
+      if (this.state.desired > 0) {
+        this.setState({
+          desired: this.state.desired - 1
+        });
+      } else {
+        this.setState({ desired: this.props.matchedUsers.length - 1});
+      }
     }
   }
 
@@ -85,8 +110,9 @@ class TextInput extends React.Component {
     const usersJsx = this.props.matchedUsers && this.props.matchedUsers.length > 0 ? (
       <ul style={{ left: cursorLoc }} className={glob.list_users}>
         {this.props.matchedUsers.map((user, index) => {
+          const elClass = index === this.state.desired ? glob.desired : '';
           return (
-            <li key={index}>
+            <li key={index} className={elClass}>
               <div className={`chip ${glob.chip}`}
                 onClick={() => this.handleUserClick(user.username)}
               >
@@ -105,7 +131,7 @@ class TextInput extends React.Component {
           <div className={`row ${glob.no_margin}`}><div className="col s12">
             <input id="input-el"
               onChange={() => this.handleTextChange()}
-              onKeyPress={(e) => this.handleKeyPress(e)}
+              onKeyDown={(e) => this.handleKeyDown(e)}
               placeholder="Write a comment..."
               style={{ marginBottom: 0 }}
               value={this.props.inputText}
