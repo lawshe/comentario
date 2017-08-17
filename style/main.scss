@@ -136,6 +136,12 @@ a:not(.btn){
   cursor: pointer;
 }
 
+.collection{
+  li {
+    background-color: $white!important;
+  }
+}
+
 .collapsible{
   border-left: 0;
   border-right: 0;
@@ -169,6 +175,10 @@ a:not(.btn){
   }
 }
 
+.desired{
+  background-color: $greenVeryLight;
+}
+
 .error{
   background-color: $red;
 }
@@ -188,9 +198,13 @@ label{
 .list_users {
   background-color: $white;
   border-radius: 0 0 2px 2px;
-  margin: 0;
-  padding: $padSM!important;
+  margin: 1px 0 0 0;
+  padding: $padSM 0 0 0!important;
   position: absolute;
+  z-index: 1;
+  li {
+    padding: $padSM;
+  }
   li:last-child{
     .chip{
       margin-bottom: 0;
