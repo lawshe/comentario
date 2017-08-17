@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { includeUser, saveComment, updateText } from '../../actions/actionCreators';
 import glob from 'style';
+import fxns from 'fxns';
 
 /**
   *
@@ -27,7 +28,6 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(includeUser(username));
     },
     onSubmitForm: () => {
-      console.log('onSubmitForm');
       dispatch(saveComment());
     }
   }
@@ -77,8 +77,13 @@ class TextInput extends React.Component {
 
   render() {
     const cursorLoc = this.getTextWidth(this.props.inputText);
+    const lastWord = this.props.inputText ? fxns.getLastWord(this.props.inputText) : '';
+    const noUsersFound = this.props.matchedUsers && this.props.matchedUsers.length === 0 && lastWord.length > 1 && lastWord.charAt(0) === '@' ?
+      <span>Sorry we are unable to find the user <span className={glob.error}>{lastWord}</span></span>
+    : <span></span>
+
     const usersJsx = this.props.matchedUsers && this.props.matchedUsers.length > 0 ? (
-      <ul style={{ left: cursorLoc, position: 'absolute' }}>
+      <ul style={{ left: cursorLoc }} className={glob.list_users}>
         {this.props.matchedUsers.map((user, index) => {
           return (
             <li key={index}>
@@ -96,7 +101,7 @@ class TextInput extends React.Component {
 
     return (
       <div id="comment-form">
-        <div className="card z-depth-0"><div className="card-content">
+        <div className={`card z-depth-0 ${glob.card}`}><div className="card-content">
           <div className="row"><div className="col s12">
             <input id="input-el"
               onChange={() => this.handleTextChange()}
@@ -108,15 +113,21 @@ class TextInput extends React.Component {
             <label htmlFor="input-el" style={{ display: 'none', float: 'left', clear: 'both', width: '100%' }}>Comment</label>
           </div></div>
           {usersJsx}
+          {noUsersFound}
         </div></div>
-        <div className={`row ${glob.no_margin}`}><div className="col s12">
-          <button className="btn z-depth-0 right" onClick={(e) => this.handleSubmit(e)}>Submit</button>
-        </div></div>
+          <div className="col s12">
+            <button className="btn z-depth-0 right" onClick={(e) => this.handleSubmit(e)}>Submit</button>
+          </div>
+        </div>
+        <div className={`row ${glob.no_margin}`}>
+          <div className="col s12">
+            <p className="grey-text text-lighten-1" style={{ marginTop: 0 }}>Start adding comments via the form above. You can mention other users by typing their username or name. Click the user in the found suggestions to autocomplete, or press enter to autocomplete with first listed user.</p>
+          </div>
+        </div>
       </div>
     );
   }
 }
-
 export default connect(
   mapStateToProps,
   mapDispatchToProps
