@@ -102,7 +102,7 @@ class TextInput extends React.Component {
     return (
       <div id="comment-form">
         <div className={`card z-depth-0 ${glob.card}`}><div className="card-content">
-          <div className="row"><div className="col s12">
+          <div className={`row ${glob.no_margin}`}><div className="col s12">
             <input id="input-el"
               onChange={() => this.handleTextChange()}
               onKeyPress={(e) => this.handleKeyPress(e)}
@@ -127,6 +127,7 @@ class TextInput extends React.Component {
     );
   }
 }
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
