@@ -115,6 +115,7 @@ class TextInput extends React.Component {
           {usersJsx}
           {noUsersFound}
         </div></div>
+        <div className="row">
           <div className="col s12">
             <button className="btn z-depth-0 right" onClick={(e) => this.handleSubmit(e)}>Submit</button>
           </div>
