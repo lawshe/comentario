@@ -115,14 +115,12 @@ class TextInput extends React.Component {
           {usersJsx}
           {noUsersFound}
         </div></div>
-        <div className="row">
-          <div className="col s12">
-            <button className="btn z-depth-0 right" onClick={(e) => this.handleSubmit(e)}>Submit</button>
-          </div>
-        </div>
         <div className={`row ${glob.no_margin}`}>
-          <div className="col s12">
-            <p className="grey-text text-lighten-1" style={{ marginTop: 0 }}>Start adding comments via the form above. You can mention other users by typing their username or name. Click the user in the found suggestions to autocomplete, or press enter to autocomplete with first listed user.</p>
+          <div className="col s6 m7 l10">
+            <p className="grey-text text-lighten-1" style={{ marginTop: 0 }}>Start adding comments via the form above. Mention other users by typing their username or name.</p>
+          </div>
+          <div className="col s6 m5 l2">
+            <button className="btn z-depth-0 right" onClick={(e) => this.handleSubmit(e)}>Submit</button>
           </div>
         </div>
       </div>
