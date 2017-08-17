@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { includeUser, updateText } from '../../actions/actionCreators';
+import { includeUser, saveComment, updateText } from '../../actions/actionCreators';
 import glob from 'style';
 
 /**
@@ -25,6 +25,10 @@ const mapDispatchToProps = (dispatch) => {
     },
     onUserClick: (username) => {
       dispatch(includeUser(username));
+    },
+    onSubmitForm: () => {
+      console.log('onSubmitForm');
+      dispatch(saveComment());
     }
   }
 }
@@ -40,6 +44,8 @@ class TextInput extends React.Component {
     if (e.key === 'Enter' && this.props.matchedUsers[0]) {
       this.props.onUserClick(this.props.matchedUsers[0].username);
       e.preventDefault();
+    } else if (e.key === 'Enter') {
+      this.props.onSubmitForm();
     }
   }
 
@@ -50,6 +56,11 @@ class TextInput extends React.Component {
 
   handleUserClick(username) {
     this.props.onUserClick(username);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.onSubmitForm();
   }
 
   getTextWidth(text) {
@@ -84,17 +95,24 @@ class TextInput extends React.Component {
     : <span></span>;
 
     return (
-      <div className="card"><div className="card-content">
-        <input id="input-el"
-          onChange={() => this.handleTextChange()}
-          onKeyPress={(e) => this.handleKeyPress(e)}
-          placeholder="Write a comment..."
-          style={{ marginBottom: 0 }}
-          value={this.props.inputText}
-        ></input>
-        <label htmlFor="input-el" style={{ display: 'none', float: 'left', clear: 'both', width: '100%' }}>Comment</label>
-        {usersJsx}
-      </div></div>
+      <div id="comment-form">
+        <div className="card z-depth-0"><div className="card-content">
+          <div className="row"><div className="col s12">
+            <input id="input-el"
+              onChange={() => this.handleTextChange()}
+              onKeyPress={(e) => this.handleKeyPress(e)}
+              placeholder="Write a comment..."
+              style={{ marginBottom: 0 }}
+              value={this.props.inputText}
+            ></input>
+            <label htmlFor="input-el" style={{ display: 'none', float: 'left', clear: 'both', width: '100%' }}>Comment</label>
+          </div></div>
+          {usersJsx}
+        </div></div>
+        <div className={`row ${glob.no_margin}`}><div className="col s12">
+          <button className="btn z-depth-0 right" onClick={(e) => this.handleSubmit(e)}>Submit</button>
+        </div></div>
+      </div>
     );
   }
 }
