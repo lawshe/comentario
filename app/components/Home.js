@@ -31,7 +31,7 @@ class Home extends React.Component {
       <div>
         <Intro parallax={this.props.parallax} />
         <div className={`section ${glob.no_pad} green darken-4 container`}>
-          <div className={`row ${glob.no_margin} ${glob.pad_lg}`}>
+          <div className={`row ${glob.no_margin} ${glob.pad_md}`}>
             <div className={`col s12 `}>
               <InputText />
             </div>
