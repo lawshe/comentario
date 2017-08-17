@@ -9,7 +9,8 @@ module.exports = {
   },
   saveComment() {
     return {
-      type: SAVE_COMMENT
+      type: SAVE_COMMENT,
+      date: new Date()
     }
   },
   toggleParallax() {
