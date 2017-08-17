@@ -19,7 +19,7 @@ export default function inputReducers(state = initialState, action) {
     }
     case SAVE_COMMENT: {
       var comments = state.comments.slice();
-      comments.push(state.input_text);
+      comments.push(state.input_text.trim());
       return Object.assign({}, state, { input_text: '', matched_users : [], comments });
     }
     default:
