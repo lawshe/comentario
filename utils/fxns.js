@@ -13,7 +13,7 @@ const findUser = (inputText) => {
     const regexPtn = '^' + lastWord + '[a-zA-Z0-9]+';
 
     usersData.forEach((user, index) => {
-      if (userResults.length < 2) {
+      if (userResults.length < 3) {
         for (let [key, value] of Object.entries(user)) {
           if (key === 'username' || key === 'name') {
             if (value.match(regexPtn)) {
