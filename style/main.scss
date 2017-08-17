@@ -11,6 +11,7 @@ $greenVeryLight: #bddebf;
 $greenVeryDark: #0F5113;
 $greenDark: #689f38;
 $white: #fafafa;
+$red: #ffcdd2;
 $btnHover : $greenDark;
 $linkColor: $blueLight;
 $linkHover: $blueDark;
@@ -108,7 +109,7 @@ a:not(.btn){
 }
 
 .card{
-  background: $grayLight;
+  background: $white;
   .collection_item{
     background: $grayLight;
   }
@@ -163,6 +164,10 @@ a:not(.btn){
   }
 }
 
+.error{
+  background-color: $red;
+}
+
 label{
   color: $blackLight;
 }
@@ -171,6 +176,19 @@ label{
   a{
     &:hover{
       color: $blueDark!important;
+    }
+  }
+}
+
+.list_users {
+  background-color: $white;
+  border-radius: 0 0 2px 2px;
+  margin: 0;
+  padding: $padSM!important;
+  position: absolute;
+  li:last-child{
+    .chip{
+      margin-bottom: 0;
     }
   }
 }
