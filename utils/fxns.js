@@ -38,12 +38,20 @@ const includeUser = (inputText, username) => {
 }
 
 const prettyDate = (date) => {
+  let dayPeriod = 'am';
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const day = date.getDate();
   const month = months[date.getMonth()];
   const year = date.getFullYear();
+  let hours = date.getHours();
+  if (hours > 12) {
+    dayPeriod = 'pm';
+    hours = hours - 12;
+  }
+  let min = date.getMinutes();
+  min = (min < 10 ? '0' : '')  + min;
 
-  return month + ' ' + day + ', ' + year;
+  return month + ' ' + day + ', ' + year + ' at ' + hours + ':' + min + dayPeriod;
 }
 
 export default {
