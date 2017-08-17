@@ -44,7 +44,8 @@ describe('input actions', () => {
 describe('input reducers', () => {
   it('should return the initial state', () => {
     expect(reducer.input(undefined, {})).toEqual({
-      input_text: ''
+      input_text: '',
+      matched_users: []
     })
   });
 
@@ -54,7 +55,8 @@ describe('input reducers', () => {
       type: types.UPDATE_TEXT,
       input_text: input_text
     })).toEqual({
-      input_text
+      input_text,
+      matched_users: []
     })
   });
 });
