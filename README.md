@@ -63,6 +63,7 @@ sudo apt-get install -y nodejs
 ```
 
 Create website directory,
+
 **You might need to run `sudo mkdir` and `sudo git`**
 ```
 $ cd ~/
@@ -86,6 +87,7 @@ $ screen -r app
 ```
 
 Stop previous app version by pressing <kbd>Ctrl</kbd> + <kbd>C</kbd>, and then start again,
+
 **You might need to run with sudo**
 ```
 $ PORT=80 npm start
