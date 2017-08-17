@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReactGA from 'react-ga';
+import Comments from 'prtls/Comments.js';
 import Intro from 'prtls/Intro.js';
 import InputText from 'prtls/InputText.js';
 import glob from 'style';
@@ -29,29 +30,10 @@ class Home extends React.Component {
   }
 
   render() {
-    const commentsJSX = this.props.comments && this.props.comments.length > 0 ? (
-      <div className={`section container`}>
-        <div className="row"><div className="col s12">
-          <h3 className="header grey-text text-lighten-5" style={{ fontWeight: 'normal', marginTop: 0 }}>Comments</h3>
-          <ul className="collection">
-            {this.props.comments.map((comment, index) => {
-              const prettyDate = fxns.prettyDate(comment.date);
-              return (
-                <li className="collection-item" key={`comment-${index}`}>
-                  <div className="grey-text">{prettyDate}</div>
-                  <p>{comment.text}</p>
-                </li>
-              );
-            })}
-          </ul>
-        </div></div>
-      </div>)
-    : <span></span>;
-
     return (
       <div>
         <Intro parallax={this.props.parallax} />
-        <div className={`section container ${glob.pad_md_top_btm}`}>
+        <div className={`section container ${glob.pad_md_top}`}>
           <h3 className="header grey-text text-lighten-5" style={{ fontWeight: 'normal', marginTop: 0 }}>Add a Comment</h3>
           <div className={`row ${glob.no_margin}`}>
             <div className={`col s12 `}>
@@ -59,7 +41,7 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
-        {commentsJSX}
+        <Comments comments={this.props.comments} />
       </div>
     )
   }
