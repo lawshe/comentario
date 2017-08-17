@@ -1,7 +1,8 @@
-import { INCLUDE_USER, UPDATE_TEXT } from '../actions/actionTypes';
+import { INCLUDE_USER, SAVE_COMMENT, UPDATE_TEXT } from '../actions/actionTypes';
 import fxns from '../../utils/fxns';
 
 const initialState = {
+  comments: [],
   input_text: '',
   matched_users: []
 };
@@ -15,6 +16,11 @@ export default function inputReducers(state = initialState, action) {
     case INCLUDE_USER: {
       const text_with_user = fxns.includeUser(state.input_text, action.username);
       return Object.assign({}, state, { input_text: text_with_user, matched_users : [] });
+    }
+    case SAVE_COMMENT: {
+      var comments = state.comments.slice();
+      comments.push(state.input_text);
+      return Object.assign({}, state, { input_text: '', matched_users : [], comments });
     }
     default:
       return state;

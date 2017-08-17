@@ -1,10 +1,15 @@
-import { INCLUDE_USER, TOGGLE_PARALLAX, UPDATE_TEXT } from './actionTypes.js'
+import { INCLUDE_USER, SAVE_COMMENT, TOGGLE_PARALLAX, UPDATE_TEXT } from './actionTypes.js'
 
 module.exports = {
   includeUser(username) {
     return {
       type: INCLUDE_USER,
       username
+    }
+  },
+  saveComment() {
+    return {
+      type: SAVE_COMMENT
     }
   },
   toggleParallax() {
