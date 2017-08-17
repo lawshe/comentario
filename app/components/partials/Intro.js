@@ -18,8 +18,11 @@ class Intro extends React.Component {
             <br /><br />
             <div className="row center">
               <h1 className="header grey-text text-lighten-5" style={{ marginBottom: 0 }}>
-                Header
+                Comentario
               </h1>
+              <h2 className="header grey-text text-lighten-2" style={{ fontWeight: 'normal', marginBottom: 0 }}>
+                A commenting system
+              </h2>
             </div>
           </div>
         </div>
