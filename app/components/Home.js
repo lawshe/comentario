@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ReactGA from 'react-ga';
 import Intro from 'prtls/Intro.js';
+import InputText from 'prtls/InputText.js';
 import glob from 'style';
+
 /**
   *
   * Homepage
@@ -28,10 +30,10 @@ class Home extends React.Component {
     return (
       <div>
         <Intro parallax={this.props.parallax} />
-        <div className={`section ${glob.no_pad} green darken-4`}>
-          <div className={`row ${glob.no_margin}`}>
-            <div className={`col s12 light-green darken-4 ${glob.pad_lg}`}>
-              <h4 className="grey-text text-lighten-4" style={{ marginTop: '0' }}>Subheader</h4>
+        <div className={`section ${glob.no_pad} green darken-4 container`}>
+          <div className={`row ${glob.no_margin} ${glob.pad_lg}`}>
+            <div className={`col s12 `}>
+              <InputText />
             </div>
           </div>
         </div>
