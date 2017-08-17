@@ -1,7 +1,7 @@
 {
-  "name": "mention-user",
+  "name": "comentario",
   "display": "standalone",
-  "short_name": "Mention User",
+  "short_name": "Comentario",
   "background_color": "#1b5e20",
   "icons": [
     {
