@@ -4,6 +4,7 @@ import ReactGA from 'react-ga';
 import Intro from 'prtls/Intro.js';
 import InputText from 'prtls/InputText.js';
 import glob from 'style';
+import fxns from 'fxns';
 
 /**
   *
@@ -34,9 +35,11 @@ class Home extends React.Component {
           <h3 className="header grey-text text-lighten-5" style={{ fontWeight: 'normal', marginTop: 0 }}>Comments</h3>
           <ul className="collection">
             {this.props.comments.map((comment, index) => {
+              const prettyDate = fxns.prettyDate(comment.date);
               return (
                 <li className="collection-item" key={`comment-${index}`}>
-                  {comment}
+                  <div className="grey-text">{prettyDate}</div>
+                  <p>{comment.text}</p>
                 </li>
               );
             })}
