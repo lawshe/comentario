@@ -7,7 +7,7 @@ The input element is in [/app/components/partials/InputText.js](https://github.c
 
 When a user suggestion list is displayed, a user can either press <kbd>enter</kbd> or click a user to autocomplete the comment. These actions are handled in [/app/components/partials/InputText.js](https://github.com/lawshe/comentario/blob/master/app/components/partials/InputText.js) and will dispatch action `INCLUDE_USER` in [/app/reducers/inputReducers.js](https://github.com/lawshe/comentario/blob/master/app/reducers/inputReducers.js).
 
-To save comments, press <kdb>enter</kdb> (when user list is not displayed, otherwise this key will autocomplete with selected user) or click the submit button. This will dispatch `SAVE_COMMENT` in [/app/reducers/inputReducers.js](https://github.com/lawshe/comentario/blob/master/app/reducers/inputReducers.js).
+To save comments, press <kbd>enter</kbd> (when user list is not displayed, otherwise this key will autocomplete with selected user) or click the submit button. This will dispatch `SAVE_COMMENT` in [/app/reducers/inputReducers.js](https://github.com/lawshe/comentario/blob/master/app/reducers/inputReducers.js).
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
