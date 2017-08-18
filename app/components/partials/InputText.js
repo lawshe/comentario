@@ -117,7 +117,7 @@ class TextInput extends React.Component {
                 onClick={() => this.handleUserClick(user.username)}
               >
                 <img src={user.avatar_url} alt={user.username} />
-                {user.username}
+                {user.username} | {user.name}
               </div>
             </li>
           );
