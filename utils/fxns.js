@@ -13,7 +13,7 @@ const findUser = (inputText) => {
 
   if (lastWord.trim() !== '' && lastWord.length > 1) {
     lastWord = lastWord.replace('@', '');
-    const regexPtn = '^' + lastWord + '[a-zA-Z0-9\s]+';
+    const regexPtn = '^' + lastWord + '[a-zA-Z0-9\\s]+';
     usersData.forEach((user, index) => {
       if (userResults.length < 3) {
         for (let [key, value] of Object.entries(user)) {
