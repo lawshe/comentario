@@ -99,5 +99,6 @@ Detach screen by pressing <kbd>Ctrl</kbd> + <kbd>A</kbd> + <kbd>D</kbd>
 - Add tests for components
 - When deleting text via backspace button, if username, then remove entire username
 - Improve user suggestions. Data is sorted by user.username, but user.name is also being used to match the input text
-- Improve UI when user suggestions overlap submit button
 - Add error message when trying to save empty message
+- Allow searching of first and last name together (currently only searching last word in input)
+- In user suggestion list, for very small screens and very long names, fix overflow 
