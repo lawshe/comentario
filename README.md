@@ -1,6 +1,13 @@
 # Comentario
 
-A commenting system that can include mentions to users. The text input will suggest users to include while typing. Input text is handled via redux and on change the state is updated. If more than 2 characters in the last word of the input then users are searched for matches. Clicking a suggested user will autocomplete the input text to include `@username`, or pressing <kbd>enter</kbd> will include the first listed user. Comments can be saved to state by pressing submit button or <kbd>enter</kbd> key (if no suggested users displayed, otherwise <kbd>enter</kbd> key autocompletes).
+A commenting system that can include mentions to users. The text input will suggest users to include while typing. Input text is handled via [redux](http://redux.js.org/) and on change the state is updated. If 2 or more characters in the last word of the input then users are searched for matches. Clicking a suggested user will autocomplete the input text to include `@username`, or pressing <kbd>enter</kbd> will include the first listed user. Comments can be saved to state by pressing submit button or <kbd>enter</kbd> key (if no suggested users displayed, otherwise <kbd>enter</kbd> key autocompletes). When user lists is displayed, they desired selection can be reached via <kbd>down</kbd> and <kbd>up</kbd> keys, or by clicking the user.
+
+## Data Handling
+The input element is in [/app/components/partials/InputText.js](https://github.com/lawshe/comentario/blob/master/app/components/partials/InputText.js) and when changed dispatches action `UPDATE_TEXT` in [/app/reducers/inputReducers.js](https://github.com/lawshe/comentario/blob/master/app/reducers/inputReducers.js). The reducer will use `findUser()` in [/utils/fxns.js](https://github.com/lawshe/comentario/blob/master/utils/fxns.js) to match the last word to either user.username or user.name (when the last word is more than 1 character). This will return 3 users max that match.
+
+When a user suggestion list is displayed, a user can either press <kbd>enter</kbd> or click a user to autocomplete the comment. These actions are handled in [/app/components/partials/InputText.js](https://github.com/lawshe/comentario/blob/master/app/components/partials/InputText.js) and will dispatch action `INCLUDE_USER` in [/app/reducers/inputReducers.js](https://github.com/lawshe/comentario/blob/master/app/reducers/inputReducers.js).
+
+To save comments, press <kdb>enter</kdb> (when user list is not displayed, otherwise this key will autocomplete with selected user) or click the submit button. This will dispatch `SAVE_COMMENT` in [/app/reducers/inputReducers.js](https://github.com/lawshe/comentario/blob/master/app/reducers/inputReducers.js).
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -101,4 +108,4 @@ Detach screen by pressing <kbd>Ctrl</kbd> + <kbd>A</kbd> + <kbd>D</kbd>
 - Improve user suggestions. Data is sorted by user.username, but user.name is also being used to match the input text
 - Add error message when trying to save empty message
 - Allow searching of first and last name together (currently only searching last word in input)
-- In user suggestion list, for very small screens and very long names, fix overflow 
+- In user suggestion list, for very small screens and very long names, fix overflow
