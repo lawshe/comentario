@@ -16,10 +16,12 @@ const findUser = (inputText) => {
     const regexPtn = '^' + lastWord + '[a-zA-Z0-9\\s]+';
     usersData.forEach((user, index) => {
       if (userResults.length < 3) {
+        let added = false;
         for (let [key, value] of Object.entries(user)) {
-          if (key === 'username' || key === 'name') {
+          if (!added && key === 'username' || !added &&  key === 'name') {
             value = value.toLowerCase();
             if (value.match(regexPtn)) {
+              added = true;
               userResults.push(user);
             }
           }
